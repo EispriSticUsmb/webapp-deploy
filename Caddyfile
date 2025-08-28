@@ -22,7 +22,10 @@
             request>tls delete
             bytes_read delete
             user_id delete
-            resp_headers delete
+            resp_headers>Via delete
+            resp_headers>Alt-Svc delete
+            resp_headers>X-Powered-By delete
+            resp_headers>Content-Type delete
         }
     }
 }
