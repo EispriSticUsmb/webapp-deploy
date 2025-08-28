@@ -41,4 +41,4 @@ COPY --from=installer /app/start.sh ./start.sh
 COPY --from=installer /app/prisma ./prisma
 RUN chmod +x start.sh
 
-CMD ["start.sh"]
+CMD ["./start.sh"]
