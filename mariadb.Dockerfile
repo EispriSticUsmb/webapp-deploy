@@ -1,4 +1,4 @@
-FROM mariadb:11
+FROM mariadb:12
 
 ENV TZ=Europe/Paris
 
