@@ -26,6 +26,7 @@
             resp_headers>Alt-Svc delete
             resp_headers>X-Powered-By delete
             resp_headers>Content-Type delete
+            resp_headers>Server delete
         }
     }
 }

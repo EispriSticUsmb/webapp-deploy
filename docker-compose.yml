@@ -1,6 +1,8 @@
 services:
   mariadb:
-    image: mariadb:11
+    build:
+      context: .
+      dockerfile: mariadb.Dockerfile
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -56,7 +58,9 @@ services:
       - app_net
 
   caddy:
-    image: caddy:2.10-alpine
+    build:
+      context: .
+      dockerfile: caddy.Dockerfile
     restart: unless-stopped
     ports:
       - "80:80"
