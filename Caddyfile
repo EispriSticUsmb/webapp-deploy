@@ -1,0 +1,28 @@
+{$DOMAIN} {
+    handle_path /api* {
+        reverse_proxy backend:80
+    }
+
+    handle {
+        reverse_proxy frontend:80
+    }
+
+    tls $EMAIL_TLS
+
+
+    log {
+        output file /data/access.log {
+            roll_size 30MB
+            roll_keep 12
+            roll_keep_for 8760h
+        }
+        format filter {
+            request>headers delete
+            request>remote_port delete
+            request>tls delete
+            bytes_read delete
+            user_id delete
+            resp_headers delete
+        }
+    }
+}
