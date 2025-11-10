@@ -1,6 +1,10 @@
 {$DOMAIN} {
-    handle_path /api* {
+    handle_path /api/* {
         reverse_proxy backend:80
+    }
+
+    handle_path /r/* {
+        reverse_proxy backend:80/redirect
     }
 
     handle {
