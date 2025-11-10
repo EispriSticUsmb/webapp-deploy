@@ -4,7 +4,8 @@
     }
 
     handle_path /r/* {
-        reverse_proxy backend:80/redirect
+        rewrite * /redirect{path}
+        reverse_proxy backend:80
     }
 
     handle {
