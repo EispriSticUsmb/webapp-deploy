@@ -1,6 +1,10 @@
 {$DOMAIN} {
     handle_path /api/* {
-        reverse_proxy backend:80
+        reverse_proxy backend:80 {
+            header_up Host {host}
+            header_up Connection {>Connection}
+            header_up Upgrade {>Upgrade}
+        }
     }
 
     handle_path /r/* {
